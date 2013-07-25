@@ -3,6 +3,9 @@ Kites and Darts are a type of non-periodic tiling invented by Roger Penrose. The
 The circular markings show how the edges of the tiles line up. The circular patterns themselves are interesting, and if you want you can print and use only the markings.
 
 See these links for more information:
-intendo.net/penrose/info.html
-mathworld.wolfram.com/PenroseTiles.html
-en.wikipedia.org/wiki/Penrose_tiling
+
+http://intendo.net/penrose/info.html
+
+http://mathworld.wolfram.com/PenroseTiles.html
+
+http://en.wikipedia.org/wiki/Penrose_tiling
