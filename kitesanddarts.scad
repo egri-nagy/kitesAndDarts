@@ -20,7 +20,7 @@
 phi = (1 + sqrt(5))/2;
 ca = cos(36);
 sa = sin(36);
-$fn = 40;
+$fn = 100;
 
 kscale = 12;
 hkite = 4;
