@@ -25,7 +25,7 @@ $fn = 40;
 kscale = 12;
 hkite = 4;
 hmark = 2;
-bigmark = 2.5;
+bigmark = 5;
 littlemark = 1;
 explode = 2;
 
@@ -38,10 +38,10 @@ explode = 2;
 //star(kscale, hkite, hmark, bigmark, littlemark,explode);
 //ace(kscale, hkite, hmark, bigmark, littlemark,explode);
 //deuce(kscale, hkite, hmark, bigmark, littlemark,explode);
-//jack(kscale, hkite, hmark, bigmark, littlemark,explode);
+jack(kscale, hkite, hmark, bigmark, littlemark,explode);
 //queen(kscale, hkite, hmark, bigmark, littlemark,explode);
-king(kscale, hkite, hmark, bigmark, littlemark,explode);
-
+//king(kscale, hkite, hmark, bigmark, littlemark,explode);
+//kitebase(kscale, hkite);
 
 //---------------------------------------------------
 module sun(kscale, hkite, hmark, bigmark, littlemark,explode)
@@ -227,7 +227,8 @@ module kitebase(kscale, hkite)
 //---------------------------------------------------
 module kitemarkings(kscale, hkite, hmark, bigmark, littlemark)
 {
-	intersection(){
+	translate([0,0,1])
+    intersection(){
 		kitebase(kscale, hmark);
 		difference(){
 			cylinder(r = kscale*phi + bigmark, h = hmark);
@@ -274,6 +275,7 @@ module dartbase(kscale, hkite)
 //---------------------------------------------------
 module dartmarkings(kscale, hkite, hmark, bigmark, littlemark)
 {
+    translate([0,0,1])
 	intersection(){
 		dartbase(kscale, hmark);
 		difference(){
@@ -283,7 +285,8 @@ module dartmarkings(kscale, hkite, hmark, bigmark, littlemark)
 		}
 	}
 	intersection(){
-		dartbase(kscale, hmark-0.5);
+        
+		dartbase(kscale, hmark);
 		translate([kscale*(1+1/phi),0,0])
 		difference(){
 			cylinder(r = kscale/phi+littlemark, h = hmark);
