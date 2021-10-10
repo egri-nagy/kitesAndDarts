@@ -23,10 +23,10 @@ sa = sin(36);
 $fn = 40;
 
 kscale = 12;
-hkite = 2;
+hkite = 4;
 hmark = 2;
-bigmark = 2;
-littlemark = 1.5;
+bigmark = 2.5;
+littlemark = 1;
 explode = 2;
 
 //kite(kscale, hkite, hmark, bigmark, littlemark,explode);
@@ -203,9 +203,11 @@ module king(kscale, hkite, hmark, bigmark, littlemark,explode)
 //---------------------------------------------------
 module kite(kscale, hkite, hmark, bigmark, littlemark)
 {
+difference(){
 	kitebase(kscale, hkite);
-	translate([0,0,hkite])
+	translate([0,0,hmark])
 	kitemarkings(kscale, hkite, hmark, bigmark, littlemark);
+}
 }
 //---------------------------------------------------
 
@@ -249,9 +251,10 @@ module kitemarkings(kscale, hkite, hmark, bigmark, littlemark)
 //---------------------------------------------------
 module dart(kscale, hkite, hmark, bigmark, littlemark)
 {
-	dartbase(kscale, hkite);
-	translate([0,0,hkite])
+    difference(){dartbase(kscale, hkite);
+	translate([0,0,hmark])
 	dartmarkings(kscale, hkite, hmark, bigmark, littlemark);
+    }
 }
 //---------------------------------------------------
 
@@ -280,7 +283,7 @@ module dartmarkings(kscale, hkite, hmark, bigmark, littlemark)
 		}
 	}
 	intersection(){
-		dartbase(kscale, hmark);
+		dartbase(kscale, hmark-0.5);
 		translate([kscale*(1+1/phi),0,0])
 		difference(){
 			cylinder(r = kscale/phi+littlemark, h = hmark);
