@@ -22,11 +22,11 @@ ca = cos(36);
 sa = sin(36);
 $fn = 100;
 
-kscale = 12;
-hkite = 4;
-hmark = 2;
-bigmark = 5;
-littlemark = 1;
+kscale = 16;
+hkite = 5;
+hmark = 2.5;
+bigmark = 6;
+littlemark = 2;
 explode = 2;
 
 //kite(kscale, hkite, hmark, bigmark, littlemark,explode);
@@ -205,7 +205,7 @@ module kite(kscale, hkite, hmark, bigmark, littlemark)
 {
 difference(){
 	kitebase(kscale, hkite);
-	translate([0,0,hmark])
+	translate([0,0,hmark-1])
 	kitemarkings(kscale, hkite, hmark, bigmark, littlemark);
 }
 }
@@ -227,7 +227,9 @@ module kitebase(kscale, hkite)
 //---------------------------------------------------
 module kitemarkings(kscale, hkite, hmark, bigmark, littlemark)
 {
-	translate([0,0,1])
+	 translate([0,0,1.5])
+    scale([1,1,2])
+   
     intersection(){
 		kitebase(kscale, hmark);
 		difference(){
@@ -236,13 +238,14 @@ module kitemarkings(kscale, hkite, hmark, bigmark, littlemark)
 			cylinder(r = kscale*phi - bigmark, h = 1.1*hmark);
 		}
 	}
+    scale([1,1,2])
 	intersection(){
 		kitebase(kscale, hmark);
 		translate([kscale*(1+phi),0,0])
 		difference(){
-			cylinder(r = kscale+littlemark, h = hmark);
+			cylinder(r = kscale+littlemark, h = hmark+20);
 			translate([0,0,-0.05*hmark])
-			cylinder(r = kscale-littlemark, h = 1.1*hmark);
+			cylinder(r = kscale-littlemark, h = 1.1*hmark+20);
 		}
 	}
 }
@@ -253,7 +256,7 @@ module kitemarkings(kscale, hkite, hmark, bigmark, littlemark)
 module dart(kscale, hkite, hmark, bigmark, littlemark)
 {
     difference(){dartbase(kscale, hkite);
-	translate([0,0,hmark])
+	translate([0,0,hmark-1])
 	dartmarkings(kscale, hkite, hmark, bigmark, littlemark);
     }
 }
@@ -275,7 +278,8 @@ module dartbase(kscale, hkite)
 //---------------------------------------------------
 module dartmarkings(kscale, hkite, hmark, bigmark, littlemark)
 {
-    translate([0,0,1])
+     translate([0,0,1.5])
+    scale([1,1,2])
 	intersection(){
 		dartbase(kscale, hmark);
 		difference(){
@@ -284,6 +288,7 @@ module dartmarkings(kscale, hkite, hmark, bigmark, littlemark)
 			cylinder(r = kscale - bigmark, h = 1.1*hmark);
 		}
 	}
+    scale([1,1,2])
 	intersection(){
         
 		dartbase(kscale, hmark);
